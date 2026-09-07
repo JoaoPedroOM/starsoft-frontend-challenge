@@ -1,0 +1,41 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 33px 43px;
+  border-bottom: 1px solid #515151;
+  width: 100%;
+  margin-bottom: 190px;
+
+  @media (max-width: 768px) {
+    padding: 24px 20px;
+    margin-bottom: 90px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px 16px;
+  }
+
+  .cartContainer {
+    display: flex;
+    align-items: center;
+
+    .cartButton {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      background: transparent;
+      border: none;
+      color: var(--color-white, #ffffff);
+      cursor: pointer;
+      padding: 0;
+
+      p {
+        font-family: var(--font-ibm-plex-sans, 'IBM Plex Sans', sans-serif);
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1;
+      }
+    }
+  }
+}

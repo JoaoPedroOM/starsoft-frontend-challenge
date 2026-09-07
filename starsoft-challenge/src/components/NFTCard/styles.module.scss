@@ -1,0 +1,102 @@
+.card {
+  background-color: var(--color-bg-card);
+  border-radius: var(--border-radius);
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 345px;
+  height: 555px;
+  max-width: 100%;
+  font-family: var(--font-family);
+  color: var(--color-white);
+  box-sizing: border-box;
+
+  .imageWrapper {
+    background-color: #22232C;
+    border-radius: var(--border-radius);
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    padding: 16px;
+    margin-bottom: 29px;
+
+    .nftImage {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 6px;
+
+    .title {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--color-white);
+      line-height: 1.2;
+    }
+
+    .description {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--color-font);
+      line-height: 1.4;
+    }
+  }
+
+  .priceWrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+
+    .ethIcon {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .price {
+      font-size: 20px;
+      font-weight: 600;
+      color: #F0F0F0;
+    }
+  }
+
+  .buyButton {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--border-radius);
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    width: 100%;
+    padding: 22px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: filter 0.2s ease, transform 0.1s ease;
+
+    &:hover {
+      filter: brightness(1.1);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+}
