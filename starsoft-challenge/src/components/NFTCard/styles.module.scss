@@ -56,12 +56,12 @@
   .priceWrapper {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     margin-bottom: 8px;
 
     .ethIcon {
-      width: 20px;
-      height: 20px;
+      width: 29px;
+      height: 29px;
       object-fit: contain;
       flex-shrink: 0;
     }
@@ -81,7 +81,6 @@
     font-family: var(--font-family);
     font-size: 16px;
     font-weight: 600;
-    letter-spacing: 0.5px;
     text-transform: uppercase;
     width: 100%;
     padding: 22px 0;
