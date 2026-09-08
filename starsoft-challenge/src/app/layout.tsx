@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Poppins, IBM_Plex_Sans } from "next/font/google";
 import "../styles/globals.css";
+import ReduxProvider from "@/providers/ReduxProvider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -27,7 +28,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR" className={`${poppins.variable} ${ibmPlexSans.variable}`}>
-      <body>{children}</body>
+      <body>
+        <ReduxProvider>{children}</ReduxProvider>
+      </body>
     </html>
   );
 }

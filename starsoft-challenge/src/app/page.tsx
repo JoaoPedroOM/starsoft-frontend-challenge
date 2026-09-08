@@ -14,11 +14,11 @@ export default function Home() {
           {products.map((product) => (
             <NFTCard
               key={product.id}
+              id={product.id}
               imageSrc={product.image}
               name={product.name}
               description={product.description}
               price={product.price}
-              onBuy={() => alert(`Comprado: ${product.name} por ${product.price} ETH`)}
             />
           ))}
         </div>
@@ -26,4 +26,3 @@ export default function Home() {
     </>
   );
 }
-

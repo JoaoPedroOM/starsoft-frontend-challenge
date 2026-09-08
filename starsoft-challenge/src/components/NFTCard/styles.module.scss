@@ -72,30 +72,4 @@
       color: #F0F0F0;
     }
   }
-
-  .buyButton {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    border: none;
-    border-radius: var(--border-radius);
-    font-family: var(--font-family);
-    font-size: 16px;
-    font-weight: 600;
-    text-transform: uppercase;
-    width: 100%;
-    padding: 22px 0;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: filter 0.2s ease, transform 0.1s ease;
-
-    &:hover {
-      filter: brightness(1.1);
-    }
-
-    &:active {
-      transform: scale(0.98);
-    }
-  }
 }
