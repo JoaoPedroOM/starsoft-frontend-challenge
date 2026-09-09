@@ -1,5 +1,4 @@
-import { StaticImageData } from "next/image";
-
+import { Product } from "@/types";
 import produto01 from "@/assets/images/Produtos/produto_01.png";
 import produto02 from "@/assets/images/Produtos/produto_02.png";
 import produto03 from "@/assets/images/Produtos/produto_03.png";
@@ -9,13 +8,7 @@ import produto06 from "@/assets/images/Produtos/produto_06.png";
 import produto07 from "@/assets/images/Produtos/produto_07.png";
 import produto08 from "@/assets/images/Produtos/produto_08.png";
 
-export interface Product {
-  id: number;
-  name: string;
-  description: string;
-  price: number;
-  image: StaticImageData;
-}
+export type { Product };
 
 export const products: Product[] = [
   {

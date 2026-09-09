@@ -2,12 +2,9 @@
 
 import { useState, useCallback } from "react";
 import NFTCard from "@/components/NFTCard";
-import { products, Product } from "@/data/products";
+import { products } from "@/data/products";
+import { Product, DisplayProduct } from "@/types";
 import styles from "./styles.module.scss";
-
-interface DisplayProduct extends Product {
-  uniqueKey: string;
-}
 
 export interface ProductGridProps {
   initialProducts?: Product[];

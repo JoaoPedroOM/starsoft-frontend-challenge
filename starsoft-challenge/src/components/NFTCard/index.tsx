@@ -1,15 +1,16 @@
 "use client";
 
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { useDispatch } from "react-redux";
-import ethIcon from "../../assets/images/ETH.png";
+import ethIcon from "@/assets/images/ETH.png";
 import { addToCart } from "@/store/cartSlice";
 import Button from "@/components/Button";
+import { ImageSource } from "@/types";
 import styles from "./styles.module.scss";
 
 export interface NFTCardProps {
   id: number;
-  imageSrc?: string | StaticImageData;
+  imageSrc?: ImageSource;
   name?: string;
   description?: string;
   price?: number;

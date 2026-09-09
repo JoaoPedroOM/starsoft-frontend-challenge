@@ -1,8 +1,8 @@
-import React, { ButtonHTMLAttributes } from "react";
+import React, { ButtonHTMLAttributes, ReactNode } from "react";
 import styles from "./styles.module.scss";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
   fullWidth?: boolean;
 }

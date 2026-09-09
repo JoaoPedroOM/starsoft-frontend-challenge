@@ -16,7 +16,7 @@ import ethIcon from "@/assets/images/ETH.png";
 import Button from "@/components/Button";
 import styles from "./styles.module.scss";
 
-interface CartDrawerProps {
+export interface CartDrawerProps {
   isOpen: boolean;
   onClose: () => void;
 }

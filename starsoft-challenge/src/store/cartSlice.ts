@@ -1,18 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { StaticImageData } from "next/image";
+import { CartItem, CartState } from "@/types";
 
-export interface CartItem {
-  id: number;
-  name: string;
-  description: string;
-  price: number;
-  image: StaticImageData | string;
-  quantity: number;
-}
-
-interface CartState {
-  items: CartItem[];
-}
+export type { CartItem, CartState };
 
 const initialState: CartState = {
   items: [],
