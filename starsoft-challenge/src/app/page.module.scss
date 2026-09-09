@@ -1,8 +1,8 @@
 .main {
   width: 100%;
-  max-width: 1300px;
+  max-width: 1520px;
   margin: 0 auto;
-  padding: 0 40px 60px;
+  padding: 0 40px 80px;
   box-sizing: border-box;
 
   @media (max-width: 768px) {
@@ -11,27 +11,5 @@
 
   @media (max-width: 480px) {
     padding: 0 16px 40px;
-  }
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 345px);
-  justify-content: center;
-  gap: 25px;
-  width: 100%;
-
-  @media (max-width: 1500px) {
-    grid-template-columns: repeat(3, 345px);
-  }
-
-  @media (max-width: 1130px) {
-    grid-template-columns: repeat(2, 345px);
-    gap: 20px;
-  }
-
-  @media (max-width: 760px) {
-    grid-template-columns: min(345px, 100%);
-    gap: 16px;
   }
 }

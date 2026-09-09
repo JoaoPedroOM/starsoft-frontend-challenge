@@ -1,0 +1,125 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 345px);
+  justify-content: center;
+  gap: 25px;
+  width: 100%;
+
+  @media (max-width: 1520px) {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 345px));
+  }
+
+  @media (max-width: 1130px) {
+    grid-template-columns: repeat(2, minmax(260px, 345px));
+    gap: 20px;
+  }
+
+  @media (max-width: 760px) {
+    grid-template-columns: min(345px, 100%);
+    gap: 16px;
+  }
+}
+
+.loadSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  max-width: 1455px;
+  margin-top: 100px;
+  box-sizing: border-box;
+}
+
+.progressBarTrack {
+  width: 400px;
+  height: 8px;
+  background-color: var(--color-bg-elevated, #393939);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  background-color: var(--color-primary);
+  border-radius: 9999px;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.actionButton {
+  width: 400px;
+  min-height: 60px;
+  background-color: var(--color-bg-elevated, #393939);
+  color: var(--color-white, #FFFFFF);
+  border: none;
+  border-radius: var(--border-radius, 8px);
+  font-family: var(--font-family, var(--font-poppins)), sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 30px 24px;
+  transition: background-color 0.2s ease, transform 0.1s ease, filter 0.2s ease, opacity 0.2s ease;
+  user-select: none;
+
+  &:hover:not(:disabled) {
+    background-color: #454545;
+    filter: brightness(1.08);
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.995);
+  }
+
+  &:disabled {
+    cursor: wait;
+    opacity: 0.8;
+  }
+}
+
+.completedBox {
+  width: 400px;
+  min-height: 60px;
+  background-color: var(--color-bg-elevated);
+  color: var(--color-white, #FFFFFF);
+  border: none;
+  border-radius: var(--border-radius, 8px);
+  font-family: var(--font-family, var(--font-poppins)), sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  box-sizing: border-box;
+  padding: 30px 24px;
+  user-select: none;
+}
+
+@media (max-width: 400px) {
+
+  .actionButton,
+  .completedBox {
+    width: 100%;
+  }
+
+  .progressBarTrack {
+    width: 100%;
+  }
+
+  .loadSection {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
