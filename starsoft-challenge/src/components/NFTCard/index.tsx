@@ -38,18 +38,18 @@ const NFTCard = ({
   };
 
   return (
-    <article className={styles.card}>
+    <article className={styles.card} aria-label={`NFT ${name}`}>
       <div className={styles.imageWrapper}>
         {imageSrc ? (
           <Image
             src={imageSrc}
-            alt={name}
+            alt={`Arte digital NFT: ${name}`}
             width={200}
             height={200}
             className={styles.nftImage}
           />
         ) : (
-          <div className={styles.nftImage} />
+          <div className={styles.nftImage} aria-hidden="true" />
         )}
       </div>
 
@@ -61,15 +61,21 @@ const NFTCard = ({
       <div className={styles.priceWrapper}>
         <Image
           src={ethIcon}
-          alt="Ethereum Icon"
+          alt=""
+          aria-hidden="true"
           width={29}
           height={29}
           className={styles.ethIcon}
         />
-        <span className={styles.price}>{price} ETH</span>
+        <span className={styles.price} aria-label={`Preço: ${price} Ethereum`}>
+          {price} ETH
+        </span>
       </div>
 
-      <Button onClick={handleBuy}>
+      <Button
+        onClick={handleBuy}
+        aria-label={`Comprar NFT ${name} por ${price} ETH`}
+      >
         COMPRAR
       </Button>
     </article>

@@ -21,8 +21,41 @@ const ibmPlexSans = IBM_Plex_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Starsoft",
-  description: "Base inicial.",
+  metadataBase: new URL("https://starsoft.games/"),
+  title: {
+    default: "Starsoft | Marketplace Exclusivo de NFTs",
+    template: "Starsoft",
+  },
+  description:
+    "Explore e colecione artes digitais exclusivas em Ethereum no marketplace Starsoft. A melhor plataforma de NFTs do Brasil.",
+  keywords: [
+    "NFT",
+    "Marketplace NFT",
+    "Ethereum",
+    "ETH",
+    "Crypto Art",
+    "Arte Digital",
+    "Web3",
+    "Blockchain",
+    "Starsoft",
+  ],
+  authors: [{ name: "Starsoft", url: "https://starsoft.games/" }],
+  creator: "Starsoft",
+  publisher: "Starsoft",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://starsoft.games/",
+  }
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

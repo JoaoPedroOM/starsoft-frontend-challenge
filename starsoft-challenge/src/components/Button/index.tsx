@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, ReactNode } from "react";
+import React, { ButtonHTMLAttributes, ReactNode, forwardRef } from "react";
 import styles from "./styles.module.scss";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -7,22 +7,21 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   fullWidth?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = ({
-  children,
-  className = "",
-  fullWidth = true,
-  type = "button",
-  ...rest
-}) => {
-  return (
-    <button
-      type={type}
-      className={`${styles.button} ${fullWidth ? styles.fullWidth : ""} ${className}`.trim()}
-      {...rest}
-    >
-      {children}
-    </button>
-  );
-};
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ children, className = "", fullWidth = true, type = "button", ...rest }, ref) => {
+    return (
+      <button
+        ref={ref}
+        type={type}
+        className={`${styles.button} ${fullWidth ? styles.fullWidth : ""} ${className}`.trim()}
+        {...rest}
+      >
+        {children}
+      </button>
+    );
+  }
+);
+
+Button.displayName = "Button";
 
 export default Button;

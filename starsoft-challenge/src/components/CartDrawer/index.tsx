@@ -37,10 +37,14 @@ const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
             onClick={onClose}
+            aria-hidden="true"
           />
 
           <motion.aside
             className={styles.drawer}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="cart-drawer-title"
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
@@ -51,23 +55,27 @@ const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
                 type="button"
                 className={styles.backButton}
                 onClick={onClose}
-                aria-label="Fechar carrinho"
+                aria-label="Fechar mochila de compras"
               >
-                <Image src={arrowLeft} alt="Voltar" width={20} height={20} />
+                <Image src={arrowLeft} alt="" aria-hidden="true" width={20} height={20} />
               </button>
-              <p className={styles.drawerTitle}>Mochila de Compras</p>
+              <h2 id="cart-drawer-title" className={styles.drawerTitle}>
+                Mochila de Compras
+              </h2>
             </div>
 
-            <div className={styles.itemsList}>
+            <div className={styles.itemsList} aria-label="Lista de itens no carrinho">
               {items.length === 0 ? (
-                <p className={styles.emptyMessage}>Sua mochila está vazia.</p>
+                <p className={styles.emptyMessage} role="status">
+                  Sua mochila está vazia.
+                </p>
               ) : (
                 items.map((item) => (
                   <div key={item.id} className={styles.cartItem}>
                     <div className={styles.itemImage}>
                       <Image
                         src={item.image}
-                        alt={item.name}
+                        alt={`Arte digital NFT: ${item.name}`}
                         width={130}
                         height={130}
                         className={styles.productImage}
@@ -79,29 +87,41 @@ const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
                       <div className={styles.itemPrice}>
                         <Image
                           src={ethIcon}
-                          alt="ETH"
+                          alt=""
+                          aria-hidden="true"
                           width={20}
                           height={20}
                           className={styles.ethIcon}
                         />
-                        <span>{item.price} ETH</span>
+                        <span aria-label={`Preço unitário: ${item.price} Ethereum`}>
+                          {item.price} ETH
+                        </span>
                       </div>
                       <div className={styles.quantityControls}>
-                        <div className={styles.quantityBtns}>
+                        <div
+                          className={styles.quantityBtns}
+                          role="group"
+                          aria-label={`Quantidade de ${item.name}`}
+                        >
                           <button
                             type="button"
                             className={styles.qtyBtn}
                             onClick={() => dispatch(decreaseQuantity(item.id))}
-                            aria-label="Diminuir quantidade"
+                            aria-label={`Diminuir quantidade de ${item.name}`}
                           >
                             −
                           </button>
-                          <span className={styles.qty}>{item.quantity}</span>
+                          <span
+                            className={styles.qty}
+                            aria-label={`Quantidade atual: ${item.quantity}`}
+                          >
+                            {item.quantity}
+                          </span>
                           <button
                             type="button"
                             className={styles.qtyBtn}
                             onClick={() => dispatch(increaseQuantity(item.id))}
-                            aria-label="Aumentar quantidade"
+                            aria-label={`Aumentar quantidade de ${item.name}`}
                           >
                             +
                           </button>
@@ -110,9 +130,9 @@ const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
                           type="button"
                           className={styles.deleteBtn}
                           onClick={() => dispatch(removeFromCart(item.id))}
-                          aria-label="Remover item"
+                          aria-label={`Remover ${item.name} da mochila`}
                         >
-                          <Image src={deleteIcon} alt="Deletar" width={18} height={18} />
+                          <Image src={deleteIcon} alt="" aria-hidden="true" width={18} height={18} />
                         </button>
                       </div>
                     </div>
@@ -125,12 +145,15 @@ const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
               <div className={styles.drawerFooter}>
                 <div className={styles.totalRow}>
                   <span className={styles.totalLabel}>TOTAL</span>
-                  <div className={styles.totalValue}>
-                    <Image src={ethIcon} alt="ETH" width={24} height={24} />
+                  <div
+                    className={styles.totalValue}
+                    aria-label={`Valor total: ${total} Ethereum`}
+                  >
+                    <Image src={ethIcon} alt="" aria-hidden="true" width={24} height={24} />
                     <span>{total} ETH</span>
                   </div>
                 </div>
-                <Button>
+                <Button aria-label="Finalizar compra dos itens na mochila">
                   FINALIZAR COMPRA
                 </Button>
               </div>

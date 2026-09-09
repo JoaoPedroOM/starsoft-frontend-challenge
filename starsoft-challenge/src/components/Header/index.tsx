@@ -15,17 +15,26 @@ const Header = () => {
 
   return (
     <>
-      <header className={styles.header}>
-        <Image src={logo} alt="Logo" width={101} height={38} priority />
+      <header className={styles.header} role="banner">
+        <Image
+          src={logo}
+          alt="Logo Starsoft"
+          width={101}
+          height={38}
+          priority
+        />
         <div className={styles.cartContainer}>
           <button
             type="button"
             className={styles.cartButton}
             onClick={() => setIsCartOpen(true)}
-            aria-label="Abrir carrinho"
+            aria-label={`Abrir carrinho de compras, ${cartCount} ${cartCount === 1 ? "item adicionado" : "itens adicionados"
+              }`}
+            aria-haspopup="dialog"
+            aria-expanded={isCartOpen}
           >
-            <Image src={bag} alt="Bag" width={24} height={24} />
-            <p>{cartCount}</p>
+            <Image src={bag} alt="" aria-hidden="true" width={24} height={24} />
+            <p aria-hidden="true">{cartCount}</p>
           </button>
         </div>
       </header>

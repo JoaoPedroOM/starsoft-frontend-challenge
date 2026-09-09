@@ -74,7 +74,8 @@ export default function ProductGrid({
   }, [isLoading, items.length, maxProducts, batchCount, initialProducts, batchSize]);
 
   return (
-    <section className={styles.container}>
+    <section id="produtos" className={styles.container} aria-label="Catálogo de NFTs">
+      <h2 className="sr-only">Coleção de NFTs em Destaque</h2>
       <div className={styles.grid}>
         {items.map((product) => (
           <NFTCard
@@ -95,6 +96,7 @@ export default function ProductGrid({
           aria-valuenow={progressPercent}
           aria-valuemin={0}
           aria-valuemax={100}
+          aria-valuetext={`${progressPercent}% dos produtos visualizados (${items.length} de ${maxProducts} NFTs)`}
           aria-label="Progresso de produtos visualizados"
         >
           <div
@@ -104,7 +106,7 @@ export default function ProductGrid({
         </div>
 
         {isCompleted ? (
-          <div className={styles.completedBox} aria-live="polite">
+          <div className={styles.completedBox} role="status" aria-live="polite">
             Você já viu tudo
           </div>
         ) : (
@@ -114,6 +116,7 @@ export default function ProductGrid({
             onClick={handleLoadMore}
             disabled={isLoading}
             aria-label="Carregar mais produtos"
+            aria-busy={isLoading}
           >
             {isLoading ? "Carregando..." : "Carregar mais"}
           </button>
